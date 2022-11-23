@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { api } from "../../services/api";
 
 const Genres = () => {
-    const [genres, setGenres] = useState([]);
+    const [genres, setGenres] = useState();
 
     useEffect(() => {
         api.get("/genre/index")
