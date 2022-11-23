@@ -15,6 +15,7 @@ const Genres = () => {
 
     return (
         <>
+            <h1>Gêneros dos filmes:</h1>
             <ul>
                 {
                     genres.map(genre => 
