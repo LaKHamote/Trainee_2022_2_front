@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 import { api } from "../../services/api";
 
 const Genres = () => {
@@ -19,7 +20,7 @@ const Genres = () => {
             <ul>
                 {
                     genres.map(genre => 
-                        <li> {genre.name} </li>
+                        <li key={genre.id}><Link style={{color: 'white'}} to={`/genero/${genre.id}`}>{genre.name}</Link> </li>
                     )
                 }
             </ul>
