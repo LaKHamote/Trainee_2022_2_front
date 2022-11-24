@@ -9,7 +9,7 @@ const MyRoutes = () => {
         <Route path="/" element={<GenreList/>}/>
         <Route path="criar" element={<GenreCreate/>}/>
         <Route path="/genero/:id" element={<GenreShow/>}/>
-        <Route path="*" element={<Navigate to="/"/>} />
+        <Route path="*" element={<Navigate to="/" replace/>} />
       </Routes>
     )
 }
