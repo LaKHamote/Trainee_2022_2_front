@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import AdminTable from '../../components/Table';
 import { useGenreIndex } from './useGenreIndex';
 
 const HomePage = () => {
@@ -6,18 +7,7 @@ const HomePage = () => {
     
     
     return (
-  <div className="App">
-    <h1>Gêneros dos filmes:</h1>
-    <ul>
-        {
-          genres.map(genre => 
-            <li> {genre.name} </li>
-            )
-        }
-    </ul>
-    {/* <h1>Adicionar um gênero:</h1> */}
-    {/* <input onChange={setInput} type="text" placeholder={"Adicione um gênero"}/> */}
-  </div>
+      <AdminTable request={'user'}/>
 );
 }
 export default HomePage

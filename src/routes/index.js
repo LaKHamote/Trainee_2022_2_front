@@ -3,6 +3,7 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import CreateGenrePage from "../pages/CreateGenrePage";
+import CreateUserPage from "../pages/CreateUser";
 import HomePage from '../pages/HomePage';
 import Root from "../pages/Root";
 import WithId from "../pages/WithId";
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
           path: 'genre/:id',
           element: <WithId />,
         },  
+        {
+          path: 'create/user',
+          element: <CreateUserPage />,
+        }
       ]
     }
   ])
