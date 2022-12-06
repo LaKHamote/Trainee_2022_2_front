@@ -9,10 +9,14 @@ const Navbar = () => {
             </li>
 
             <li>
-                <Link to='/create'>create genre</Link>
+                <Link to='/genres'>Users</Link>
+            </li>
+
+            <li>
+                <Link to='/genres/create'>create genre</Link>
             </li>
             <li>
-                <Link to='/create/user'>create user</Link>
+                <Link to='/users/create'>create user</Link>
             </li>
         </ul>
     </nav>

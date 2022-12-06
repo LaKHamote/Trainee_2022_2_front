@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { api } from "../../services/api"
+import { api } from "../../../services/api"
 import { useNavigate } from 'react-router-dom'
+import { objectToFormData } from "../../../utils/objectToFormData";
 
 
 const CreateUserPage = () => {
@@ -11,30 +12,33 @@ const CreateUserPage = () => {
     const [userPhoto, setUserPhoto] = useState('')
 
 
-    const addPhoto = async (id) => {
-        const formData = new FormData()
-        formData.append('profile_picture[]', userPhoto[0])
-        try {const response = await api.post(`user/add_profile_picture/${id}`, formData)
+    // const addPhoto = async (id) => {
+    //     const formData = new FormData()
+    //     formData.append('profile_picture[]', userPhoto[0])
+    //     try {const response = await api.post(`user/add_profile_picture/${id}`, formData)
 
-        if (response.data) {
-            alert("Usuário criado com sucesso")
-        }
-        }catch(e){alert(e)}
-    }
+    //     if (response.data) {
+    //         alert("Usuário criado com sucesso")
+    //     }
+    //     }catch(e){alert(e)}
+    // }
 
     const createUser = async (e) => {
         e.preventDefault()
         
+        const formData = objectToFormData({
+            user: {
+                name: userName,
+                is_admin: false,
+                profile_picture: userPhoto[0]
+            }
+        })
+
         try {
-            const response = await api.post("/user/create", {
-                user: {
-                    name: userName,
-                    is_admin: false
-                }
-            })
+            const response = await api.post("/user/create", formData)
     
             if (response.data) {
-                addPhoto(response.data.id)
+                // addPhoto(response.data.id)
                 navigate('/')
             }
         } catch(e) {

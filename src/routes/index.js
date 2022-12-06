@@ -3,9 +3,9 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import CreateGenrePage from "../pages/CreateGenrePage";
-import CreateUserPage from "../pages/CreateUser";
-import HomePage from '../pages/HomePage';
+import CreateUserPage from "../pages/UserPages/CreateUser";
 import Root from "../pages/Root";
+import GenrePage from "../pages/UserPages";
 import WithId from "../pages/WithId";
 
 export const router = createBrowserRouter([
@@ -15,19 +15,19 @@ export const router = createBrowserRouter([
       errorElement: <>erro</>,
       children: [
         {
-          path: '',
-          element: <HomePage />,
+          path: 'genres',
+          element: <GenrePage />,
         },
         {
-          path: 'create',
+          path: 'genres/create',
           element: <CreateGenrePage />,
         },
         {
-          path: 'genre/:id',
+          path: 'genres/:id',
           element: <WithId />,
         },  
         {
-          path: 'create/user',
+          path: 'users/create',
           element: <CreateUserPage />,
         }
       ]
