@@ -9,6 +9,8 @@ const CreateUserPage = () => {
     let navigate = useNavigate();
 
     const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('')
     const [userPhoto, setUserPhoto] = useState('')
 
 
@@ -30,7 +32,9 @@ const CreateUserPage = () => {
             user: {
                 name: userName,
                 is_admin: false,
-                profile_picture: userPhoto[0]
+                profile_picture: userPhoto[0],
+                email,
+                password
             }
         })
 
@@ -39,7 +43,7 @@ const CreateUserPage = () => {
     
             if (response.data) {
                 // addPhoto(response.data.id)
-                navigate('/')
+                navigate('/genres')
             }
         } catch(e) {
             alert(e)
@@ -57,6 +61,19 @@ const CreateUserPage = () => {
                     placeholder="Nome do usuário"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
+                />
+                <input
+                    style={{marginLeft: '20rem', fontSize: `3rem`}}
+                    placeholder="Email do usuário"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                    style={{marginLeft: '20rem', fontSize: `3rem`}}
+                    placeholder="Senha do usuário"
+                    
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
                 <input
                     style={{marginLeft: '20rem', fontSize: `3rem`}}

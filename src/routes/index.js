@@ -7,6 +7,7 @@ import CreateUserPage from "../pages/UserPages/CreateUser";
 import Root from "../pages/Root";
 import GenrePage from "../pages/UserPages";
 import WithId from "../pages/WithId";
+import LoginPage from "../pages/LoginPage";
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
         {
           path: 'users/create',
           element: <CreateUserPage />,
+        },
+        {
+          path: 'login',
+          element: <LoginPage />,
         }
       ]
     }

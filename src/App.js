@@ -1,7 +1,7 @@
 import {
-  createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { UserProvider } from "./context/useUserContext";
 import { router } from "./routes";
 
 
@@ -9,7 +9,9 @@ import { router } from "./routes";
 function App() {
   return (
     <>
+    <UserProvider>
       <RouterProvider router={router} />
+    </UserProvider>
     </>
   )
 }
